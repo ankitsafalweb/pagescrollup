@@ -1,0 +1,53 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Safalweb
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.safalweb.com/end-user-license
+ *
+ * ******************************************************************
+ * *               MAGENTO EDITION USAGE NOTICE                     *
+ * ******************************************************************
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. SafalWeb does not
+ * provide extension support in case of incorrect edition use.
+ * ******************************************************************
+ * @category    Safalweb
+ * @package     Safalweb_PageScrollUp
+ * @version     1.0.0
+ * @author      SafalWeb <support@safalweb.com>
+ * @license     http://www.safalweb.com/end-user-license
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Store:etc/config.xsd">
+    <default>
+        <pagescrollup>
+            <general>
+                <enable>1</enable>
+            </general>
+            <frontend>
+                <position>right</position>
+                <position_right>15px</position_right>
+                <position_left>15px</position_left>
+                <position_bottom>10px</position_bottom>
+                <scroll_offset>300</scroll_offset>
+                <scroll_speed>300</scroll_speed>
+                <animation>slide</animation>
+                <animation_speed>200</animation_speed>
+                <type>image</type>
+                <scrollup_image>default/pagescrollup.png</scrollup_image>
+                <text>TOP</text>
+                <text_weight>bold</text_weight>
+                <text_size>16px</text_size>
+                <backgroundcolor>#000000</backgroundcolor>
+                <textcolor>#ff5100</textcolor>
+                <zindex>9999</zindex>
+            </frontend>
+        </pagescrollup>
+    </default>
+</config>

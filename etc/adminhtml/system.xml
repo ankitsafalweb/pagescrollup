@@ -1,0 +1,161 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Safalweb
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.safalweb.com/end-user-license
+ *
+ * ******************************************************************
+ * *               MAGENTO EDITION USAGE NOTICE                     *
+ * ******************************************************************
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. SafalWeb does not
+ * provide extension support in case of incorrect edition use.
+ * ******************************************************************
+ * @category    Safalweb
+ * @package     Safalweb_PageScrollUp
+ * @version     1.0.0
+ * @author      SafalWeb <support@safalweb.com>
+ * @license     http://www.safalweb.com/end-user-license
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Config:etc/system_file.xsd">
+    <system>
+        <section id="pagescrollup" translate="label" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+            <class>separator-top</class>
+            <label>Page Scroll Up</label>
+            <tab>general</tab>
+            <resource>Safalweb_PageScrollUp::pagescrollup</resource>
+            <group id="general" translate="label" type="text" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>General Configuration</label>
+                <field id="enable" translate="label" type="select" sortOrder="1" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Enable Module</label>
+                    <source_model>Magento\Config\Model\Config\Source\Yesno</source_model>
+                </field>
+            </group>
+            <group id="frontend" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                <label>Frontend Configuration</label>
+                <field id="position" translate="label" type="select" sortOrder="10" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Position</label>
+                    <source_model>Safalweb\PageScrollUp\Model\System\Config\Source\Position</source_model>
+                    <comment><![CDATA[Select Position for Scroll Up Element on frontend pages.]]></comment>
+                </field>
+
+                <field id="position_right" translate="label" type="text" sortOrder="15" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Right Position Offset</label>
+                    <depends>
+                        <field id="*/*/position">right</field>
+                    </depends>
+                    <comment><![CDATA[Enter value for right position offset. Value must be in px, Example: 20px]]></comment>
+                </field>
+
+                <field id="position_left" translate="label" type="text" sortOrder="20" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Left Position Offset</label>
+                    <depends>
+                        <field id="*/*/position">left</field>
+                    </depends>
+                    <comment><![CDATA[Enter value for left position offset. Value must be in px, Example: 20px]]></comment>
+                </field>
+
+                <field id="position_bottom" translate="label" type="text" sortOrder="30" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Bottom Position Offset</label>
+                    <comment><![CDATA[Enter value for bottom position offset. Value must be in px, Example: 20px]]></comment>
+                </field>
+
+                <field id="scroll_offset" translate="label" type="text" sortOrder="40" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Scroll From</label>
+                    <comment><![CDATA[Enter value for scroll offset. Scroll to element will display after page will scroll more then this amount. Value must be integer, Example 350]]></comment>
+                </field>
+
+                <field id="scroll_speed" translate="label" type="text" sortOrder="50" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Scroll Speed</label>
+                    <comment><![CDATA[Enter value for page Scroll to top speed. Higher value means slow page scroll speed. Value must be integer, Example 250]]></comment>
+                </field>
+
+                <field id="animation" translate="label" type="select" sortOrder="60" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Animation</label>
+                    <source_model>Safalweb\PageScrollUp\Model\System\Config\Source\Animation</source_model>
+                    <comment><![CDATA[Select animation effect for Scroll Up Element.]]></comment>
+                </field>
+
+                <field id="animation_speed" translate="label" type="text" sortOrder="70" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Animation Speed</label>
+                    <depends>
+                        <field id="*/*/animation" separator=",">fade,slide</field>
+                    </depends>
+                    <comment><![CDATA[Enter value for Scroll Up Element Animation speed. Higher value means slow animation speed. Value must be integer, Example 250]]></comment>
+                </field>
+
+                <field id="type" translate="label" type="select" sortOrder="80" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Type</label>
+                    <source_model>Safalweb\PageScrollUp\Model\System\Config\Source\Type</source_model>
+                    <comment><![CDATA[Select type for Scroll Up Element.]]></comment>
+                </field>
+
+                <field id="scrollup_image" translate="label" type="image" sortOrder="90" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Image</label>
+                    <backend_model>Magento\Config\Model\Config\Backend\Image</backend_model>
+                    <upload_dir config="system/filesystem/media" scope_info="1">scrollup_image</upload_dir>
+                    <base_url type="media" scope_info="1">scrollup_image</base_url>
+                    <comment><![CDATA[Allowed file types: jpeg, gif, png.]]></comment>
+                    <depends>
+                        <field id="*/*/type">image</field>
+                    </depends>
+                    <comment><![CDATA[Upload image for Scroll Up Image Element.]]></comment>
+                </field>
+
+                <field id="text" translate="label" type="text" sortOrder="100" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Link Text</label>
+                    <depends>
+                        <field id="*/*/type" separator=",">link,pill</field>
+                    </depends>
+                    <comment><![CDATA[Enter text for Scroll Up Link Element.]]></comment>
+                </field>
+
+                <field id="text_weight" translate="label" type="text" sortOrder="110" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Link Font Weight</label>
+                    <depends>
+                        <field id="*/*/type" separator=",">link,pill</field>
+                    </depends>
+                    <comment><![CDATA[Enter font weight for Scroll Up Link Element. Enter any one from "bold / normal / lighter"]]></comment>
+                </field>
+
+                <field id="text_size" translate="label" type="text" sortOrder="120" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Link Font Size</label>
+                    <depends>
+                        <field id="*/*/type" separator=",">link,pill</field>
+                    </depends>
+                    <comment><![CDATA[Enter font size for Scroll Up Link Element. Value must be in px, Example: 20px.]]></comment>
+                </field>
+
+                <field id="backgroundcolor" translate="label" type="text" sortOrder="130" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Background Color</label>
+                    <frontend_model>Safalweb\PageScrollUp\Block\System\Config\Field\Color</frontend_model>
+                    <depends>
+                        <field id="*/*/type">pill</field>
+                    </depends>
+                    <comment><![CDATA[Choose color from colorpicker for Scroll Up Pill Element.]]></comment>
+                </field>
+
+                <field id="textcolor" translate="label" type="text" sortOrder="140" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Font Color</label>
+                    <frontend_model>Safalweb\PageScrollUp\Block\System\Config\Field\Color</frontend_model>
+                    <depends>
+                        <field id="*/*/type" separator=",">link,pill</field>
+                    </depends>
+                    <comment><![CDATA[Choose color from colorpicker for Scroll Up Pill or Link Element.]]></comment>
+                </field>
+
+                <field id="zindex" translate="label" type="text" sortOrder="150" showInDefault="1" showInWebsite="1" showInStore="1">
+                    <label>Element Z-Index</label>
+                    <comment><![CDATA[Enter value for z-index css property. To adjust Scroll Up Element priority to display.]]></comment>
+                </field>
+            </group>
+        </section>
+    </system>
+</config>

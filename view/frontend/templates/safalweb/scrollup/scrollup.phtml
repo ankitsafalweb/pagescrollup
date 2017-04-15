@@ -1,0 +1,51 @@
+<?php
+/**
+ * Safalweb
+ *
+ * NOTICE OF LICENSE
+ *
+ * This source file is subject to the EULA
+ * that is bundled with this package in the file LICENSE.txt.
+ * It is also available through the world-wide-web at this URL:
+ * http://www.safalweb.com/end-user-license
+ *
+ * ******************************************************************
+ * *               MAGENTO EDITION USAGE NOTICE                     *
+ * ******************************************************************
+ * This software is designed to work with Magento community edition and
+ * its use on an edition other than specified is prohibited. SafalWeb does not
+ * provide extension support in case of incorrect edition use.
+ * ******************************************************************
+ * @category    Safalweb
+ * @package     Safalweb_PageScrollUp
+ * @version     1.0.0
+ * @author      SafalWeb <support@safalweb.com>
+ * @license     http://www.safalweb.com/end-user-license
+ */
+
+$_helper = $this->helper('Safalweb\PageScrollUp\Helper\Data');
+?>
+<a id="pagescrollup" class="pagescrollup position-<?php echo $_helper->getPosition() ?> pagescrollup-<?php echo $_helper->getType() ?>" href="#" style="<?php echo $_helper->getStyle() ?>">
+    <?php if($_helper->getType() == "image"):?>
+        <img src="<?php echo $_helper->getImage() ?>" alt="<?php echo _("Top") ?>"/>
+    <?php elseif($_helper->getType() == "link"):?>
+        <?php echo $_helper->getLinkText() ?>
+    <?php elseif($_helper->getType() == "pill"):?>
+        <?php echo $_helper->getLinkText() ?>
+    <?php endif;?>
+</a>
+<script type="text/javascript">
+    require(['jquery','pagescrolltop'], function ($) {
+        $.scrollUp({
+            scrollTrigger: '#pagescrollup',
+            scrollDistance: <?php echo $_helper->getScrollOffset() ?>,
+            scrollSpeed: <?php echo $_helper->getScrollSpeed() ?>,
+            animation: '<?php echo $_helper->getAnimation() ?>',
+            animationSpeed: '<?php echo $_helper->getAnimationSpeed() ?>',
+            position: '<?php echo $_helper->getPosition() ?>',
+            vPosition: '<?php echo $_helper->getPositionBottom() ?>',
+            hPosition: '<?php echo $_helper->getHPosition() ?>',
+            zIndex: <?php echo $_helper->getZindex() ?>
+        });
+    });
+</script>
