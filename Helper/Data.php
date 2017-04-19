@@ -28,16 +28,13 @@ namespace Safalweb\PageScrollUp\Helper;
 class Data extends \Magento\Framework\App\Helper\AbstractHelper
 {
     protected $_storeManager;
-    protected $_storeConfig;
 
     public function __construct(
         \Magento\Framework\App\Helper\Context $context,
-        \Magento\Store\Model\StoreManagerInterface $storeManager,
-        \Magento\Framework\App\Config\ScopeConfigInterface $scopeConfig
+        \Magento\Store\Model\StoreManagerInterface $storeManager
     )
     {
         $this->_storeManager = $storeManager;
-        $this->_storeConfig = $scopeConfig;
         parent::__construct($context);
     }
 
