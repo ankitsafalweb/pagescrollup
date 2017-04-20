@@ -39,7 +39,7 @@
                 <scroll_speed>300</scroll_speed>
                 <animation>slide</animation>
                 <animation_speed>200</animation_speed>
-                <type>image</type>
+                <type>pill</type>
                 <scrollup_image>default/pagescrollup.png</scrollup_image>
                 <text>TOP</text>
                 <text_weight>bold</text_weight>
