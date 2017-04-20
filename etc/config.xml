@@ -28,7 +28,7 @@
     <default>
         <pagescrollup>
             <general>
-                <enable>1</enable>
+                <enable>0</enable>
             </general>
             <frontend>
                 <position>right</position>
